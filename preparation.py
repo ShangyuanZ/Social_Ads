@@ -78,9 +78,5 @@ if __name__ == "__main__":
     for i in range(4):
         tmp = pd.read_csv(tmp_path+"trans_filtered_userFeature_"+str(i+1)+".csv")
         ufeas = pd.concat([ufeas, tmp])
-    ufeas.to_csv(tmp_path+"userFeature.csv", index=False)
+    ufeas.to_csv(output_path+"userFeature.csv", index=False)
     print ("User feature combination finished !!!")
-    ufeas = pd.read_csv(tmp_path+"userFeature.csv", chunksize=65000)
-    for i, ufea in enumerate(ufeas):
-        ufea.to_csv(output_path+"userFeature_"+str(i+1)+".csv", index=False)
-    print ("User feature files exportation finished !!!")

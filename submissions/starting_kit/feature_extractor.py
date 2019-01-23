@@ -22,7 +22,7 @@ class FeatureExtractor(object):
         X_sparse=OneHot(data_new,X_df_new,one_hot_feature)
         X_sparse=Vectorize(data_new,X_df_new,vector_feature,X_sparse)
 
-        return X_sparse
+        return X_sparse.tocsr()
 
 def labelEncoder(data,X_df,one_hot_feature):#normalize features
     le=LabelEncoder()

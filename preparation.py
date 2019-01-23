@@ -14,6 +14,7 @@ cols = ['age', 'gender', 'marriageStatus', 'education', 'consumptionAbility', 'L
 def sample(frac=0.1):
     train = pd.read_csv(input_path+"train.csv")
     data = train.sample(frac=frac)
+    data['label'] = data['label'].replace(-1, 0)
     data.to_csv(tmp_path+"data.csv", index=False)
     train, test = train_test_split(data, test_size=0.3)
     train.to_csv(output_path+"train.csv", index=False)

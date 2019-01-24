@@ -1,3 +1,13 @@
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.abspath(__file__))+"/../../")
+from problem import get_train_data, get_test_data
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+from sklearn.feature_extraction.text import CountVectorizer
+from scipy import sparse
+
+
 class FeatureExtractor(object):
     def __init__(self):
         pass
@@ -6,9 +16,13 @@ class FeatureExtractor(object):
         return self
 
     def transform(self, X_df):
-        X_df_new = X_df[0].copy()
-        data_new = X_df[1].copy()
-
+        # X_df_new = X_df[0].copy()
+        # data_new = X_df[1].copy()
+        X_df_new = X_df.copy()
+        train, _ = get_train_data()
+        test, _ = get_test_data()
+        data_new = pd.concat([train, test])
+        
         X_df_new = X_df_new.fillna('-1')  # replace missing values NaN
         data_new = data_new.fillna('-1')
 

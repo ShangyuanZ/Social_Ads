@@ -59,7 +59,7 @@ def labelEncoder(data, X_df, one_hot_feature):  # normalize features
 
 
 def OneHot(data, X_df, one_hot_feature):
-    enc = OneHotEncoder()
+    enc = OneHotEncoder(categories='auto')
     X_sparse = X_df[['creativeSize']]
     for feature in one_hot_feature:
         enc.fit(data[feature].values.reshape(-1, 1))

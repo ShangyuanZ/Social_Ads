@@ -1,4 +1,4 @@
-# Social_Ads
+# Social Ads
 
 _Authors: Bolong ZHANG, Shangyuan ZHANG, Wang SUN, Wenzhuo LIU_
 
